@@ -1,0 +1,5 @@
+# holds the access token — never commit
+state.json
+node_modules/
+# private notes about the local setup
+TODO.md
