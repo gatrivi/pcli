@@ -213,6 +213,11 @@ http.createServer((req, res) => {
   rl.on('line', l => { exec(l, 'pc'); rl.prompt(); });
   rl.on('close', () => { process.stdout.write(TERM_RESET); process.exit(0); });
   rl.prompt();
+}).on('error', e => {
+  console.error(e.code === 'EADDRINUSE'
+    ? `pcli is already running (port ${PORT} is taken). Use that window, or close it and try again.`
+    : `pcli failed to start: ${e.message}`);
+  process.exit(1);
 });
 
 const PAGE = `<!doctype html><html><head><meta charset=utf-8>

@@ -1,1 +1,1 @@
-@node "%~dp0server.js" %*
+@node "%~dp0server.js" %* || pause
